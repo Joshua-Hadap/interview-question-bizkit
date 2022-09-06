@@ -27,4 +27,10 @@ def search_users(args):
 
     # Implement search here!
 
-    return USERS
+    filtered_dict = [
+        user
+        for user in USERS
+        if any(key in user and value in str(user[key]) for key, value in args.items())
+    ]
+
+    return filtered_dict
